@@ -54,3 +54,4 @@ console.log("2" === 2);       // Output ==> false
 /* Note :- This comparision operator "===" compairs according to "Data Type" of values
            In the below example the type of both "2" is different, One is "String" and
            other is "Integer".
+*/
