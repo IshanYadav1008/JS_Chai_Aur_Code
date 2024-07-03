@@ -110,3 +110,22 @@ console.log(Array.isArray("Ishan"));
 console.log("Now we are making 'Ishan' as an Array by using 'from()' method");
 console.log(Array.from("Ishan"));
 // Output ==> [ 'I', 's', 'h', 'a', 'n' ]
+
+console.log(Array.from({name: "ishan"}));
+/* Output ==> [] (empty array) 
+Kyuki ye isko ==> "{name: "ishan"}" directly convert nhi kar paa raha. Toh hume ise batana
+padega ki hum iski "keys" kaa Array banaye yaa iski "values" kaa array banaye or agr ye nhi
+bana payega toh ye hmesha empty array dega.
+*/
+console.log("----------------------------------");
+
+// ---------------------------------------------------------------------------------------------
+
+// Ab hume multiple values ko array mai convert karna hai.
+
+let score1 = 100
+let score2 = 200
+let score3 = 300
+
+console.log(Array.of(score1, score2, score3));
+// Output ==> [ 100, 200, 300 ]
