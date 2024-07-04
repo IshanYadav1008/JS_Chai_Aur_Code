@@ -253,6 +253,43 @@ console.log("------------------------------");
    LastLoginDays: ["Monday", "Saturday"]    
    }
 
-   JsUser.greetings = function(){
+   JsUser8.greeting = function(){
       console.log("Hello JS user");
    }
+
+   console.log(JsUser8.greeting());
+
+   /* Output ==> Hello JS user
+      Output ==> undefined       ==> Ye undefined hume kisi issue ki wajah se dikh raha hai lekin 
+                                     issue hmare code mai nhi hai.   
+   */
+
+   console.log(JsUser8.greeting);
+   /* Output ==> [Function (anonymous)] --> Iska mtlb hai ki, hmre paas aaya ek function return back
+                                            mtlb function execute nhi hua hai, bs funciton ka reference
+                                            aaya hai.
+   */
+
+   // ************************************** this() function ****************************************
+
+   // Ab hume kya karna hai ki jo bhi name upr "JsUser8" object ke andar toh usko reference karna hai.
+
+   JsUser8.greetingTwo = function(){
+      console.log(`Hello JS user, ${this.name}`); 
+      /* Toh us name ko reference karne ke liye hum ise ("Hello JS user") convert karte hai strings se 
+         backticks mai or ise bolte hai "String Interpolation".
+         
+         Phir hum comma(,) laga kar ye lagayenge (${}) or en curly braces mai hum koi bhi variable likh
+         sakte hai. Ab kya hai ki jab bhi hume "same object" ko "reference" karna hai toh hum likhte hai 
+         ye ==> (${this.}). Toh this laga kar jab hum dot(.) lagayenge toh jo bhi hmara object hai toh 
+         uske andar jitni bhi properties hai vo sab hume yha par mil jayengi.
+
+         Toh jaise hume chyiae object ka name, toh hum likhenge (${this.name}).  
+      */
+   }
+   console.log("We are using this() function for returning the Object name");
+   console.log(JsUser8.greetingTwo());
+   /* Output ==> Hello JS user, Ishan
+                 undefined            
+   */
+
