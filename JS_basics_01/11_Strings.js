@@ -9,7 +9,7 @@ console.log(name + repoCount + " Value"); // Output ==> Ishan50 Value
 console.log("---------------------------");
 
 /* Now, this below Syntax is the Latest way of printing the String Values. So for writing
-   the new syntax we will use backticks(``) and the befifite of using backticks is 
+   the new syntax we will use backticks(``) and the benifits of using backticks is 
    "String Interpulation". Matlab ki hum banate hai "placeholders ( {} )", yaani hmare paas
    jo bhi variable hai use hum directly en (placeholder ==> {}) mai inject kar sakte hai.
 */
