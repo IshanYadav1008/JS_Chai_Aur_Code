@@ -166,7 +166,7 @@ console.log("Output in the result is...");
 console.log("Result: ", result);
 /* Output ==> undefined     (Ab "result" ke andar jo value hai vo hai "undefined". Ab aisa kyu ?)
     
-   Kyuki "functio"n mai value "pass" toh ho gyi lekin "add" hone ke baad "return" nhi hui kyuki 
+   Kyuki "function" mai value "pass" toh ho gyi lekin "add" hone ke baad "return" nhi hui kyuki 
    function apne aap values ko return nhi karta hai. Values ko return karwane ke liye hume "return"
    keyword ka use karna padta hai.
 */
@@ -228,14 +228,14 @@ console.log("----------------------------------");
    console.log(loginUserMessage())
    /* Output ==> undefined just logged in
 
-   Interview Question ==> Agr hum kuch bhi pass hi nhi karte hai toh aata hai "undefined", "null"  nhi aata hai
-                          kyuki vo define hi nhi hua hai. */
+   Interview Question ==> Agr hum kuch bhi pass hi nhi karte hai toh aata hai "undefined", 
+                          "null"  nhi aata hai kyuki vo define hi nhi hua hai. */
 
    console.log("----------------------------------");
    // ----------------------------------------------------------------------------------------------------------
 
-   /* Hum "if-else" syntax use karke ye cheez check kar sakte hai ki koi value "argument" se pass hui bhi hai yaa
-      nhi, yaa phir parameter mai koi value hai yaa nhi. */
+   /* Hum "if-else" syntax use karke ye cheez check kar sakte hai ki koi value "argument" se 
+      pass hui bhi hai yaa nhi, yaa phir parameter mai koi value hai yaa nhi. */
     
       function loginUserMessage_1(username_1){
 
@@ -297,3 +297,55 @@ console.log(loginUserMessage_3());
     Please enter a username
     undefined                
 */
+
+console.log("----------------------------------");
+// ----------------------------------------------------------------------------------------------------------
+
+/* Agr mannlo ki "User" kuch bhi "arguments" pass nhi kar raha hai toh phir hum "parameters" mai default value
+   bhi de sakte hai */
+
+   function loginUserMessage_4(username_4 = "sam"){  // Passing "sam" as default parameter
+
+      if(!username_4) 
+      {
+         console.log("Please enter a username"); 
+         return 
+      }
+      return `${username_4} just logged in`
+   }
+   
+   console.log("Here we are passing default value in the parameters");
+   console.log(loginUserMessage_4()); // Not passing any value in the argument
+
+   /* Agr ab hum "argument" mai kuch bhi pass nhi karenge tab bhi hum ab "if-block" mai 
+      nhi jaayenge kyuki ab koi bhi argumnet pass naa karne par bhi minimum se minimum 
+      "sam" as a parameter pass hoga toh (!sam) ki value ho jayegi "false". Toh ab
+      username ki value kbhi bhi undefined nhi ho sakti hai.  */
+
+   /* Output ==> 
+
+      Here we are passing default value in the parameters
+      sam just logged in
+   */
+
+   console.log("----------------------------------");
+// ----------------------------------------------------------------------------------------------------------
+
+/* Ab agr maanlo ki humne "argument" se bhi value pass kardi hai "parameter" ko or humne parameter
+   mai default value bhi le li hai "sam" toh jo value hum as an argument pass krenge vo value parameter
+   ki default value ko overwrite kar degi.  */
+
+   function loginUserMessage_4(username_4 = "sam"){  // Also Passing "sam" as default parameter
+
+      if(!username_4) 
+      {
+         console.log("Please enter a username"); 
+         return 
+      }
+      return `${username_4} just logged in`
+   }
+   
+   console.log("Passing argument value overwritten the default parameter value");
+   console.log(loginUserMessage_4("ishan")); // Passing value in the argument
+
+   /* ishan just logged in */
