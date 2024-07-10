@@ -298,7 +298,7 @@ console.log("--------------------------------------");
                 hold kar sakte hai. 
 */
 
-const addTwo = (num1, num2) => {  /* humne hmre arrow() function ko "addTwo" ke andar hold akr liya hai or
+const addTwo = (num1, num2) => {  /* humne hmre arrow() function ko "addTwo" ke andar hold kr liya hai or
                                      humne isme 2-Parameters pass kar diye. */
   return num1 + num2
 }
@@ -307,5 +307,89 @@ console.log(addTwo(3, 4))
 /* Output ==> Output of adding two numbers by using array function is...
               7
    
-   Ab ye ho gya hmara basic arrow function.
+   Ab ye toh ho gya hmara basic arrow function.
+*/
+
+console.log("--------------------------------------");
+
+// ---------------------------------------------------------------------------------------------------------
+
+/* Ab es arrow() function ko ek or tarah se use kiya jata hai, jise bola jata hai 
+   "Implicit return". Implicit return ka mtlb hota hai ki :
+   
+   1) 1st hume function mai paranthesis {} use nhi karne pdte hai. 
+   
+   2) 2nd hume "return" waali line ko same line mai likhna hota hai.
+
+   3) 3rd hume "return" keyword likne ki bhi jarort nhi hoti hai kykui hmara ek hi line ka statement hai.
+*/
+
+const addTwo_2 = (num1, num2) => num1 + num2
+
+console.log("Output of Implicit Return Arrow() function");
+console.log(addTwo_2(3, 4));
+/* Output ==> Output of Implicit Return Arrow() function
+              7 
+*/
+
+console.log("--------------------------------------");
+
+//  Isko thoda or simple kar sakte hai.
+
+const addTwo_3 = (num1, num2) => (num1 + num2) // hum yha par paranthesis () use kar sakte hai.
+
+console.log("Output of Implicit Return Arrow() function using parantesis");
+console.log(addTwo_3(3, 4));
+/* Output ==> Output of Implicit Return Arrow() function using parantesis
+              7 
+*/
+
+/* ******************************* Important Note **********************************
+
+  Arrow() function mai kya hota hai ki:
+
+  1) {  return num1 + num2 } ==> Agr humne curly-braces mai wrap kara toh phir hume "return"
+                                 keyword likhna padta hai.
+
+  2) (num1 + num2)           ==> Lekin age paranthesis mai wrap kara toh phir hum "return" keyword
+                                 likhne ki koi jarurt nhi hoti.
+
+  "Implicit Return" ka mtlb hai ki hume return lagane ki koi jarort nhi hai lekin "Explicit Return"
+  ka mtln hai ki hume explicitly return keyword lagana pad rha hai.
+
+*/
+
+console.log("--------------------------------------");
+
+// ---------------------------------------------------------------------------------------------------------
+
+/* Ab paranthesis() lagane ka fayda kya hota hai ?
+
+   Abhi toh hum "num1" or "num2" ko return kar rhe the lekin age hume ek "Object" ko "return" karna ho toh
+   kaise karenge ?
+
+*/
+
+const return_obj = (num1, num2) => {username: "ishan"} // Ab es tarah se paranthesis lga kr hum object bnate hai.
+
+console.log("Output of Returning Object");
+console.log(return_obj(3, 4));
+/* Output ==> Output of Returning Object
+              undefined
+
+   Ab undefined kyu aaya ? kyuki ab es tarah se object return hi nhi kar sakte hai.
+*/
+
+console.log("--------------------------------------");
+
+/* Object ko return karwane ke liye hume use paranthesis () mai wrap karna hi padega.  */
+
+const return_obj1 = (num1, num2) => ({username: "ishan"}) /* Object return karwane ke liye hume es 
+                                                             tarah se Object ko paranthesis () mai 
+                                                             wrap karna padega. */
+console.log("Output of Returning Object");
+console.log(return_obj1(3, 4));
+/* Output ==> Output of Returning Object
+              { username: 'ishan' }
+
 */
