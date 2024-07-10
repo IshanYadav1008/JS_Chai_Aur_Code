@@ -53,7 +53,7 @@
    }
     this
     /* Toh ab sawal ye hai ki ? Agr hum yha pr "this" lagate hai toh yha par bhi toh kuch current context
-       hoga. Toh yha par vo current context hai kya ? toh vo hum smjhenge. 
+       hoga. Toh yha par vo current context hai kya ? toh vo hum baad mai smjhenge. 
     */ 
 
 // Toh ab hum es program ko run krke dekhte hai
@@ -146,7 +146,7 @@ console.log(this);
     
   Ab current context hmare paas kya hai ? empty.
   
-  kykui hum Node environment ke andar hai. Jab hum node environment ke andar hai toh hmare jo
+  kykui hum Node environment ke andar hai. Jab hum node environment ke andar hai toh hmara jo
   "this" hai vo refer kar rha hai ek empty object ({}) ko. kyuki abhi global-object ke andar
   koi context hi nhi hai isliye empty de rha hai.
 */
@@ -181,8 +181,6 @@ console.log("--------------------------------------");
 
 // -----------------------------------------------------------------------------------------------------------\
 
-// ****************************************** Arrow Function ******************************************
-
 function chai(){
     console.log(this);
 }
@@ -213,7 +211,12 @@ chai()
 }
 
 
-Abhi humne code run kiya toh hmre paas bhut saari values aayi hai.
+Abhi humne code run kiya toh hmre paas bhut saari values aayi hai. Toh jab humne "this" ko
+function ke bahar print karwaya tha tab toh theak hai lekin jb hum "this" ko function ke andar
+print karwate hai Node environment ke andar toh hmre paas bhut saari values aa jaati hai as an
+output.
+
+Iska mtlb this ke andar kuch toh rakha hua hai or use hum access bhi kar sakte hai
 
 */
 
@@ -221,3 +224,88 @@ console.log("--------------------------------------");
 
 // -----------------------------------------------------------------------------------------------------------\
 
+// Ab hum aisa karte hai :
+
+function chai_1(){
+  let username = "ishan"
+  console.log(this.username); 
+}
+console.log("Output of chai_1() is");
+chai_1()
+/* Output ==> undefined
+
+   Toh ye jo hmara context hai toh ye actually mai "Objects" ke andar hi kaam kar rha hai
+   es tarah se functions ke andar hum "this" ko use nhi kar paa rhe hai.
+
+*/
+
+console.log("--------------------------------------");
+
+// -----------------------------------------------------------------------------------------------------------\
+
+/* ****************************************** Arrow Function ******************************************
+
+Ab hum dekhenge ki or kaise hum "functions()" ko declare kar skte hai "arrow()" functions ke through  */
+
+const chai_2 = function(){
+  let username = "ishan"
+  console.log(this.username);
+}
+console.log("Output of chai_2() is");
+chai_2()
+// Output ==> undefined (Hum ye kya (this.username) ki baat kr rhe hai usko nhi pta.)
+
+console.log("--------------------------------------");
+
+// -----------------------------------------------------------------------------------------------------------
+
+// Ab "Arrow()" function banane ke liye hume kya krna hai ki :-
+
+const chai_3 = () => {         // Hume arrow function banane ke liye isme bs "function" word ko remove karna hai
+  let username = "ishan"       // or paranthesis "()" ke  baad arrow "=>" laga dena hai.
+
+  console.log(this.username);  /* Ab interesting baat ye hai ki kya hum "arrow()" function ke andar es tarah se
+                                  ye cheezen le sakte hai. */ 
+}
+console.log("Output of arrow function chai_3() is");
+chai_3()
+/*
+Output of arrow function chai_3() is
+undefined 
+*/
+
+console.log("--------------------------------------");
+
+// -----------------------------------------------------------------------------------------------------------
+
+const chai_4 = () => {         
+  let username = "ishan"       
+
+  console.log(this);  /* Ab agr hum yha par sirf "this" ko use karke dekhte hai toh kya hota hai ? */ 
+}
+console.log("Output of printing only 'this' in chai_4() is");
+chai_4()
+// Output ==> {}
+
+console.log("--------------------------------------");
+
+// ---------------------------------------------------------------------------------------------------------
+
+
+// ===========*****========== Ab hum sirf "Arrow()" functions par baat karenge ===========*****===========
+
+/* () = {} ---> Ye ho gya hmara "arrow()" function. An hum es arrow function ko ek variable ke andar bhi
+                hold kar sakte hai. 
+*/
+
+const addTwo = (num1, num2) => {  /* humne hmre arrow() function ko "addTwo" ke andar hold akr liya hai or
+                                     humne isme 2-Parameters pass kar diye. */
+  return num1 + num2
+}
+console.log("Output of adding two numbers by using array function is...")
+console.log(addTwo(3, 4))
+/* Output ==> Output of adding two numbers by using array function is...
+              7
+   
+   Ab ye ho gya hmara basic arrow function.
+*/
