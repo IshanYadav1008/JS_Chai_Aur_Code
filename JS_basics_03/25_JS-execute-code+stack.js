@@ -318,3 +318,226 @@
 // ************************************* call stack ********************************************
 
 
+/* Ques) Ab call stack kya hota hai ? 
+ 
+   Ans) Ye bhi ek memory space hota hai or isme bhi "Global Execution Context" yaa phir ise hum
+        "Global-Environment" bhi sakte haitoh ye hoga hi hoga.
+
+        Ab isme kya hota hai ki functions es call stask mai aate hai or phir execute hone ke baad
+        isme se bahar aa jaate hai.
+
+        1) call stack ==> Global Execution Context ==> function one() 
+
+        After Execution of fucntion one(), toh ye stack se bahar aa jayega.
+    
+        2) call stack ==> Global Execution Context ==> No any function
+
+
+----------------------------------------------------------------------------------------------------
+
+# Calling function inside the another function.
+
+Ab maanlo ki humne function ke andar se kisi dosre fucntion ko call kar rakha ho toh phir ye
+"Execution Context" kaise chlega ?
+
+Ans) Toh es case mai LIFO (Last In First Out) concept chlta hai.
+
+
+NORMAL EXECUTION OF FUNCTIONS
+-----------------------------
+Jaise maanlo ek stack hai or usme global-execution context toh hoga hi. Or isme 3-functions hai
+one(), two() or three(). 
+
+Ab maanlo ki function one() stack mai aaya ==> execute hua ==> or fir stack se bahar aa gya
+same function two() or three() ke liye bhi hua.
+
+1) Call Stack ==> Global Execution Context ==> function one()   in ==> execute ==> now one() is out
+2) Call Stack ==> Global Execution Context ==> function two()   in ==> execute ==> now two() is out
+1) Call Stack ==> Global Execution Context ==> function three() in ==> execute ==> now three() is out
+
+CALLING FUNCTION INSIDE THE FUNCTION
+------------------------------------
+
+Ab mannlo ki hume function one() koc all kiya toh one() stack mai aa gya, ab one() stack ke andar hi hai
+or humne two() ko call kar liya, ab function one() or two() dono satck mai hai or phir humne three() ko
+call kar liya. Toh ab pehle bahar kionsa aayega toh pehle three() bahar aayega execute ho kar, phir two()
+bahar aayega or phir one().
+
+Call Stack ==> Global Execution Context ==> calling function one() ==> calling function two() ==>
+
+calling funciton three() ==> one() two() three() ==> three() executed ==> one() two() ==> 
+
+two() executed ==> one() ==> one executed.
+
+Now call stack after execution of all 3-functions:
+--------------------------------------------------
+
+Call Stack ==> Global Execution Context ==> No function is present now
+
+*/
+
+// ---------------------------------------------------------------------------------------------------
+
+/* Ab hum call stack ke execution ko Practically dekhenge ki ye kaise hota hai: 
+
+   Iska execution hum google pr hi dekh sakte hai:-
+
+   Goto Google ==> right click ==> Inspect ==> Sources ==> New Snippets ==> New Snippets ==> chaiaurcode.js
+
+   Toh hum "source" mai hi "new snippets" bna sakte hai. Toh hum yha pe hi dekh sakte hai ki
+   methods wagarah kaise run hote hai or kya inka scope hai. Or hum niche scroll krenge toh 
+   hume niche dikh jayega "call stack" ki kya call stack ho rha hai. toh hum yhi mi yhi sb
+   kuch dekh sakte hai.
+
+   Toh ab hum es new snippts mai apna code likenge:
+*/
+
+function one(){
+   console.log("one")
+  }
+function two(){
+    console.log("two")
+}
+function three(){
+    console.log("three")
+}
+
+one()   ==> Fir humne call kiya ye function
+two()   ==> Fir
+three() ==> or fir ye
+
+ctrl+s ==> se save ho jayega
+
+// ----------------------------------------------------------------
+
+/*
+   Ab hum apne program mai breakpoints bhi laga sakte hai. kaise ? Hume save karne ke baad
+   bs us line pr click karna hai jis par hume breakpoint lagana hai.
+*/
+
+function one(){
+   console.log("one")      // Apply BreakPoint Here
+  }
+function two(){
+    console.log("two")     // Apply BreakPoint Here
+}
+function three(){
+    console.log("three")   // Apply BreakPoint Here
+}
+
+one()   ==>    // Apply BreakPoint Here
+two()   ==>    // Apply BreakPoint Here
+three() ==>    // Apply BreakPoint Here
+
+
+
+/* Output ==>
+
+   Ab hume apne program ko run karna hai toh run kaise karenge ?
+
+   Run karne ke liye hum "CTRL + Enter" kar denge yaa phir inke bagal mai jo button hai
+   use click kar denge.
+
+1) Ab jaise hi hum program ko run karenge toh hmara jo "call stack" mai waha par abhi
+   line number 11 hai 
+
+   fir hum break through krenge yaani program ko aage bhadayenge toh hum: 
+
+   console.log("one") ==> es waali line par pahuch jayenge
+
+   Toh one() ko jaise hi humne call kiya toh jo call stack hai toh uske andar "one"
+   aaya.
+
+2) fir humne step through kiya toh humara curser two() pr aa jayega.
+   
+   console.log("two") ==> fir hum aage bhadenge toh hmara curser es line pr aa jayega
+
+   or call stack mai "two" aa jayega or jaise hi two aa jayega toh uski definition waha
+   load ho jayegi. Uska mermory or executional phase tha vo ho gya.
+
+3) fir humne step through kiya toh humara curser two() pr aa jayega.
+
+   console.log("three") ==> fir hum aage bhadenge toh hmara curser es line pr aa jayega
+
+   Ab three() ke andar uski definition load hogi, call stack ke andar "three" hai.
+   
+   or fir humne isko phase out kar diya hai yaani hmara program end ho gya hai
+
+*/
+
+// ------------------------------------------------------------------------------------------
+
+/* Ab hum methods ke andar methods ko call krke dekhenge: 
+ 
+   Lekin hum function three() ke andar fuction one() ko call nhi krenge. aisa kyu ? kyuki agr
+   hum aisa krenge toh hmara program infinite mai chla jayega.
+*/
+
+function one(){
+   console.log("one")      // Apply BreakPoint Here
+   two()
+  }
+function two(){
+   console.log("two")     // Apply BreakPoint Here\
+   three()
+}
+function three(){
+   console.log("three")   // Apply BreakPoint Here
+}
+
+one()   ==>    // Apply BreakPoint Here
+two()   ==>    // Apply BreakPoint Here
+three() ==>    // Apply BreakPoint Here
+
+Then Save(ctrl + s) the code
+
+/* Output ==>
+   
+   Ab hum apne program ko run karenge or "call stack" ko dekhenge:
+
+   Toh step out krte hai mtlb program ko aage bhadate hai yaani run krte hai.
+
+   ctrl + enter ==> To run the program
+
+   1) Hum apne program ko run krenge toh call stack mai "one" aayega. 
+
+      -----------------------------------
+      call stack ==> ==> step out ==> one
+      -----------------------------------
+   
+   
+   2) Ab hum fir se step out krenge toh hume call stack mai "two" or "one" dono dekhai denge.
+
+      ------------------------------------------------------------
+      call stack ==> ==> step out ==> one ==> step out ==> one two
+      ------------------------------------------------------------
+
+      call stack mai one, twi ke niche aa gya hai lekin abhi bhi present hai
+
+   3) Ab hum phir se step out karenge toh "three" bhi call stack mai aa jayega, toh ab call stack
+      mai hume one, two or three ye teeno dekhai denge.
+
+      ---------------------------------------------------------------------------------------
+      call stack ==> step out ==> one ==> step out ==> one two ==> step out ==> one two three
+      ---------------------------------------------------------------------------------------
+
+      sabse upr hoga "three", uske upr "two" or for uske upr "one".
+
+      Toh ab teeno ke teeno call stack ke andar hai.
+
+   4) Fir hum aage bhadenge toh hum function two() pr aa jayenge.
+
+      or step out krenge toh call stack mai "two" aayega or fir se step out krenge toh "three" bhi
+      aa jayega. kyuki hume function two() mai three() ko bhi call kar liya tha.
+
+      -----------------------------------------------------------------------
+      call stack ==> step out ==> two ==> step out ==> two three ==> step out
+      -----------------------------------------------------------------------
+
+   5) or last mai call stack mai step out karne par "three" aa jayega.
+
+      ---------------------------------
+      call stack ==> step out ==> three
+      ---------------------------------
+      
+*/
