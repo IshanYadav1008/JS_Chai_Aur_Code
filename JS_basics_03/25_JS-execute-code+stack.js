@@ -167,9 +167,154 @@
                         liye kuch hai hi nhi. kyuki humne yah pr definition ko hold karke rakh
                         diya hai toh execution abhi hoga nhi.
 
-   d) 
+   d) let result1 = addNum(val1, val2) ----> Ab hum es line mai aate hai, toh "result1" mai kya jayega ?
+                                             "result1" mai toh jaana tha "addNum" lekin addNum toh 
+                                             function hai.
+
+      addNum(num1, num2) --> Toh ab hum aa jayenge es "addNum" function pe. Toh ye addNum apna ek alg 
+                             execution context banata hai.
+
+                             Ab ek or executional context ban kar tayiar ho gya hai yaani hum ise ek box
+                             ki tarah maan sakte hai. Or Es executional context mai hmare liye banega 
+                             "new variable environment" or ek "Execution Thread".
+
+      --------------------------------------------------------------------------------------------------                    
+      addNew ==> Ek " Global executional context" bana ==> "new variable environment + execution thread"
+      --------------------------------------------------------------------------------------------------
+
+      NOTE: Toh jitni baar bhi functions execute hote hai toh utni baar ek naya box create hota hai, 
+            jise bolte hai "New Executional Context". or es context ke andar kya hota hai ?
+            Variables ka ek alg se environment ka poora "sandbox" hmre liye bnaya jata hai or ek
+            execution thread bhi hmre liye bnaya jata hai, Jisse saare hmre jitne bhi kaam hai or 
+            jitna bhi execution hai vo hona hai.
+
+      Ab yha pr interesting baat kya hai ? Kyuki yha pr ek poora new sandbox hmare liye tayiar ho gya 
+      hai toh ab es box ke hone se yha par kya hoga ki vo jo 2 kaam the vo ab wapus se honge.
+      
+      Ab vo 2 kaam kya the ?
+
+      a) Memory Creation Phase
+
+      b) Execution Phase
+
+      Memory Creation Phase / Memory Phase
+      ------------------------------------
+ 
+      val1  = undefined ==> Isme bhi "undefined" jayega
+      val2  = undefined ==> or isme bhi
+      total = undefined ==> isme bhi 
+
+      Execution Phase / Execution Context
+      -----------------------------------
+
+      Ab hm jayenge "execution context" ke andar. Ab jab hum execution context mai jaate hai tab 
+      actually mai prcessing hoti hai yaa phir hume bole ki execution hota hai, jo bhi hmare
+      mathematical variables hai yaa jo bhi data manipulate karna hai toh vo saara kaam yha 
+      execute hota hai.
+
+      Toh execution ke dauraan sbse phle kya hoga ?
+
+      num1  = 10 -----> num1 mai value jayegi 10
+      num2  = 5  -----> or num2 mai value jayegi 5
+      total = 15 -----> total mai calculate ho kar chli jayegi 15
+
+      Phir jo "total" hai vo apne "parent executional context" par return ho jayega. Vaise hum ise 
+      ye bhi bolte hai ki humne ise yaani "total" ko uske "global executional context" mai return 
+      ho gya hai.
+
+      Or obvious hai ki koi function execute hone ke baad kuch "return" kar rha hai "value" toh vo
+      apne "global executional context" mai hi return karega.
 
 
-  
+      Toh ab itna saara kaam hone ke baad jo upr "Executional Context" bna tha toh vo ab "Delete"
+      ho jayega.
 
+      ------------------------------------------------------------------------------------------------------                     
+      addNew ==> Ek "Global executional context" bana ==> "new variable environment + execution thread"
+            
+             ==> ab "Delete" ho jayega
+      ------------------------------------------------------------------------------------------------------
+
+      Toh ye jo "Global Executional Context" bna tha toh vo ab delete ho jayega.
+ 
+      result1 = 15 ----> Toh return hone ke baad ab "result1" mai value aa gyi hai "15".
+
+
+   e) let result2 = addNum(10, 2) 
+
+   Ab es "result2" mai bhi ek function execute ho rha hai, toh phir wapus se same process repeat hogi.
+   Same "d" wala point repeat hoga.
+
+   --------------------------------------------------------------------------------------------------                    
+   addNew ==> Ek " Global executional context" bana ==> "new variable environment + execution thread"
+   --------------------------------------------------------------------------------------------------
+
+   let result2 = addNum(10, 2) ----> Ab hum es line mai aate hai, toh "result1" mai kya jayega ?
+                                     "result1" mai toh jaana tha "addNum" lekin addNum toh function
+                                     hai.
+
+   let result2 = addNum(10, 2) ---> Toh ab hum aa jayenge es "addNum" function pe. Toh ye addNum apna ek alg 
+                                    execution context banata hai toh ab phir se ek naya "global execution
+                                    context" ban jayega.
+
+                                    Ab phir se ek naya Global executional context ban kar tayiar ho gya hai 
+                                    yaani hum ise ek box ki tarah maan sakte hai. Or Es executional context
+                                    mai hmare liye banega "new variable environment" or ek "Execution Thread".
+
+      Ab yha pr interesting baat kya hai ? Kyuki yha pr ek poora new "Sandbox" hmare liye tayiar ho gya 
+      hai toh ab es box ke hone se yha par kya hoga ki vo jo 2 kaam the vo ab wapus se honge.
+      
+      Ab vo 2 kaam kya the ?
+
+      a) Memory Creation Phase
+
+      b) Execution Phase
+
+      Memory Creation Phase / Memory Phase
+      ------------------------------------
+ 
+      val1  = undefined ==> Isme bhi "undefined" jayega
+      val2  = undefined ==> or isme bhi
+      total = undefined ==> isme bhi 
+
+      Execution Phase / Execution Context
+      -----------------------------------
+
+      Ab hm jayenge "execution context" ke andar. Ab jab hum execution context mai jaate hai tab 
+      actually mai prcessing hoti hai yaa phir hume bole ki execution hota hai, jo bhi hmare
+      mathematical variables hai yaa jo bhi data manipulate karna hai toh vo saara kaam yha 
+      execute hota hai.
+
+      Toh execution ke dauraan sbse phle kya hoga ?
+
+      num1  = 10 -----> num1 mai value jayegi 10
+      num2  = 2  -----> or num2 mai value jayegi 2
+      total = 15 -----> total mai calculate ho kar chli jayegi 12
+
+      Phir jo "total" hai vo apne "parent executional context" par return ho jayega. Vaise hum ise 
+      ye bhi bolte hai ki humne ise yaani "total" ko uske "global executional context" mai return 
+      ho gya hai.
+
+      Or obvious hai ki koi function execute hone ke baad kuch "return" kar rha hai "value" toh vo
+      apne "global executional context" mai hi return karega.
+
+
+      Toh ab itna saara kaam hone ke baad jo upr "Executional Context" bna tha toh vo ab "Delete"
+      ho jayega.
+
+      ------------------------------------------------------------------------------------------------------                     
+      addNew ==> Ek "Global executional context" bana ==> "new variable environment + execution thread"
+            
+             ==> ab "Delete" ho jayega
+      ------------------------------------------------------------------------------------------------------
+
+      Toh ye jo "Global Executional Context" bna tha toh vo ab delete ho jayega.
+ 
+      result2 = 12 ----> Toh return hone ke baad ab "result2" mai value aa gyi hai "12".
 */
+
+// ------------------------------------------------------------------------------------------------------------
+
+// ************************************* call stack ********************************************
+
+
