@@ -1,6 +1,6 @@
-//  Conditional Statements
+// ############################################ Conditional Statements ##########################################
 
-// 1) if statement
+// ************************************************* if statement ***************************************************
 
 /* 
 
@@ -153,8 +153,6 @@ console.log("---------------------------------------");
 
 // -------------------------------------------------------------------------------------
 
-// 
-
 // Ab agr maanlo hum "const" ki jagah "var" use karte hai toh kya hota hai ?
 
 const score_2 = 200
@@ -177,4 +175,108 @@ console.log(`User Power: ${power_2}`);  /*  toh hum yha scope ke bahar es "power
     Kykui ye jo "power_2" variable hai ye kabhi bhi if ke scope ke bahar niklna hi nhi chyiae tha.
 
     Toh hume "let" ya phir "const" ko use karna chyaie.
+*/
+
+console.log("---------------------------------------");
+
+// -------------------------------------------------------------------------------------
+
+const balance = 1000
+console.log("Output of Implicit Scope Program");
+if (balance > 500) console.log("test"); /* Ab es program mai hum Scope ke liye curly-braces({}) ka use
+                                           nhi kar rhe hai. Kyuki isme condition ke baad ek hi statement
+                                           hai toh hum chaahe toh curly-braces ka use kare yaa naa bhi
+                                           kare tb bhi ye sahi hai or chlega.
+                                           
+                                           Or ise bolte hai "Implicit Scope" yaani ki hmne maan liye hai
+                                           ki Scope hai.
+
+Output ==> Output of Implicit Scope Program 
+           test                                           
+*/
+
+// Hum chaahe toh aise bhi likh sakte hai, JS mai ye bhi allowed hai lekin ye Good Practice nhi hai.
+const balance_1 = 1000
+console.log("Output of Another Implicit Scope Program");
+if (balance > 500) console.log("test"), console.log("test-2");
+
+/* Output ==> Output of Another Implicit Scope Program
+              test
+              test-2
+*/
+
+console.log("---------------------------------------");
+
+// -------------------------------------------------------------------------------------
+
+// Nested if-else
+
+const balance_2 = 1000
+
+console.log("Output of Nested if-else");
+
+if (balance_2 < 500)
+{
+    console.log("1000 is Not Less than 500");
+}
+else if (balance_2 < 750)
+{
+    console.log("1000 is Not Less than 750");
+}
+else if (balance_2 < 900)
+{
+    console.log("1000 is Not Less than 900");
+}
+else
+{
+    console.log("1000 is Less than 1200");
+}
+
+/* Output ==> Output of Nested if-else
+              1000 is Less than 1200 
+*/
+
+console.log("---------------------------------------");
+
+// -------------------------------------------------------------------------------------
+
+/* Using AND(&&) Operator with if statement  */
+
+const userLoggedIn = true
+const debitCard    = true
+
+if (userLoggedIn && debitCard && 2==2) // Sabhi conditions "True" honi chyiae. 
+{
+    console.log("Using AND(&&) Operator with if");
+    console.log("Allow to buy course");
+}
+/* Output ==> Using AND(&&) Operator
+              Allow to buy course 
+*/
+
+console.log("---------------------------------------");
+
+// -------------------------------------------------------------------------------------
+
+/* Using both AND(&&) and OR(||) Operator with if statement  */
+
+const userLoggedIn_1 = true
+const debitCard_1    = true
+const loggedInFromGoogle_1 = false
+const loggedInFromEmail_1  = true
+
+if (userLoggedIn_1 && debitCard_1 && 2==2)         // Sabhi conditions "True" honi chyiae. 
+{
+    console.log("Using AND(&&) Operator");
+    console.log("Allow to buy course");
+}
+if (loggedInFromGoogle_1 || loggedInFromEmail_1)   // Kam se Kam ek condition "True" honi chyiae.
+{
+    console.log("Using OR(||) Operator");
+    console.log("User Logged in");
+}
+/* Output ==> Using AND(&&) Operator
+              Allow to buy course
+              Using OR(||) Operator
+              User Logged in
 */
