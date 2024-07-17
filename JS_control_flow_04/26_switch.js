@@ -38,7 +38,8 @@ switch (month) {
         break;
 }
 
-/* Output ==> March 
+/* Output ==> Compairing case with numbers
+              March
       
    Agr hum "break" nhi lagayenge toh hmre code ka control flow break ho jayega mtlb agr humne
    kisi case statement baad "break" nhi lagaya toh fir uske aage ke sabhi case statement print
@@ -73,3 +74,7 @@ switch (month_1) {
         console.log("Default case match");
         break;
 }
+
+/* Output ==> Compairing case with String
+              Feburary
+*/
