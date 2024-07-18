@@ -65,7 +65,7 @@ console.log("---------------------------------------");
 
 // --------------------------------------------------------------------------------------------------------
 
-// Nested for-loop
+// ************************************* Nested for-loop **********************************************
 console.log("Nesting in for-loop");
 console.log("");
 
@@ -128,4 +128,63 @@ for (let i = 0; i <= 5; i++) { /* Yha hum phir se "i" le sakte hai. Ab aisa kyu 
                 Inner loop value 2 and inner loop value 5
                 Inner loop value 3 and inner loop value 5
                 Inner loop value 4 and inner loop value 5
+*/
+
+console.log("---------------------------------------");
+
+// --------------------------------------------------------------------------------------------------------
+
+// Printing Table using for loop
+
+console.log("Printing Table by using for-loop");
+console.log("");
+
+for (let i = 1; i <= 5; i++) { 
+
+    console.log(`Table of ${i} is...`);
+    
+    for (let j = 1; j <= 10; j++) {
+        console.log(`${i} * ${j} = ${j * i}`);             // This Syntax will print the table
+        // console.log(i + ' * ' + j + ' = ' + i*j);       // And This will also print the table
+    }
+    console.log("");
+}
+
+// Output ==> THe table of 1 to 5 will print
+
+console.log("---------------------------------------");
+
+// --------------------------------------------------------------------------------------------------------
+
+/* *********************************** Array using for-loop *****************************************
+
+for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+    
+} 
+
+Agr hum for loop ka basic structure dekhe toh ye Array ke upr saara kaam karne ki kosis karta hai,toh ye bhi
+hum dekhte hai.
+*/
+
+let myArray = ["Ram", "Laxhman", "Hanuman"] // Toh ab es "myArray" pr loop lag gya 
+
+console.log('Length of myArray is ' + myArray.length);
+for (let index = 0; index < myArray.length; index++) {
+    const element = myArray[index]; // Yha Array ko access karne ke liye hume index value deni hoti hai.
+    console.log(element);   
+}
+
+/*  Output ==> Length of myArray is 3
+               Ram
+               Laxhman
+               Hanuman
+
+    1) index = 0; --> Es Program mai, array ka "index" zero se start ho raha hai.
+
+    2) index < myArray.length; --> Ab kab tk chalana hai hume es index ko ? jab tak ki ye index array ki
+                                   length se chota rahe.
+
+    
+
 */
