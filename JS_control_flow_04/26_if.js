@@ -240,7 +240,9 @@ console.log("---------------------------------------");
 
 // -------------------------------------------------------------------------------------
 
-/* Using AND(&&) Operator with if statement  */
+// ****************************** Logical Operators ************************************
+
+/* Using Logical AND(&&) Operator with if statement  */
 
 const userLoggedIn = true
 const debitCard    = true
@@ -258,7 +260,7 @@ console.log("---------------------------------------");
 
 // -------------------------------------------------------------------------------------
 
-/* Using both AND(&&) and OR(||) Operator with if statement  */
+/* Using both Logical AND(&&) and Logical OR(||) Operator with if statement  */
 
 const userLoggedIn_1 = true
 const debitCard_1    = true

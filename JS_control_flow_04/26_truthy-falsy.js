@@ -147,9 +147,149 @@ if (userEmail_3.length === 0) { /* Hum es array ki "length property" ko call kar
               0
               Array is Empty
 */
-
+    
 console.log("----------------------------------------");
 
 // --------------------------------------------------------------------------------------------
 
 // Ab "Objects" agr "empty" aa gye toh phir hum kaise check karenge ?
+
+const emptyObj = {} // Ye humne ek empty object le liya
+
+if (Object.keys(emptyObj).length ===0) {    /* es tarah --> "Object.keys()" se hmre paas Object ka ek Array 
+                                               bn kar aa jata. Or jo array ban kar aata hai vo aata hai 
+                                               "keys" kaa.  
+
+                                               (Object.keys(emptyObj)) --> Ye poora ka poora hume return karega
+                                               ek array.
+                                               
+                                               (Object.keys(emptyObj).length ===0) ---> Toh isse hume pta lag
+                                               jayega ki hmara object empty hai yaa nahi hai.
+                                            */
+    console.log("Checking Object is empty or not");
+    console.log("Object is empty");   
+}
+/* Output ==> Checking Object is empty or not
+              Object is empty 
+*/
+
+console.log("----------------------------------------");
+
+// --------------------------------------------------------------------------------------------
+
+/* GoTo Google ==> right click ==> inspect ==> console 
+
+
+#  Write this line of code  --> false == 0   Yaha hum "false" ko "zero" se compair kar rhe hai.
+   And then Enter           --> enter
+   Output                   --> true
+
+   Ab jab humne "false" ko "0"se compair kiya toh "true" aaya. Toh ye equality ka comparision hota
+   hai.
+
+#  Write this line of code  --> false == ''   Yaha hum "false" ko "empty string" se compair kar rhe hai.
+   And then Enter           --> enter
+   Output                   --> true
+   
+   Ab jab humne "false" ko 'empty string' se compair krenge toh "true" aayega.
+
+#  Write this line of code  --> 0 == ''   Yaha hum zero ko "empty string" se compair kar rhe hai.
+   And then Enter           --> enter
+   Output                   --> true
+   
+   Ab jab humne zero ko 'empty string' se compair krenge toh "true" aayega.
+
+*/
+
+// --------------------------------------------------------------------------------------------
+
+/* ************************** Nullish Coalescing Operator (??) ********************************
+
+   Yaha hume saara ka saara 2 hi keyword ke upr dekhna hai "null" or "undefined". Saari kahani 
+   inhi 2 operators ke upr tiki hoti hai.
+
+   Ab ye operator hota kya hai or karta kya hai ? Ye hum smjte hai.
+*/
+
+let val1;
+val1 = 5 ?? 10 // Ab "val1" variable mai konsi value assign hogi ? 5 yaa 10
+console.log("Output of val1 is...");
+console.log(val1);
+
+/* Output ==> Output of val1 is...
+              5
+
+Ab jab first value means "5" hi "val1" mai jaani thi toh phir humne ye "??" operator kyu lagaya ?
+
+Kayi baar kya hota hai jab hum DataBase se call krenge, yaa specially kuch Firebase wagarah ka use
+karenge toh kya hota hai ki hume directly response nhi milta hai.
+
+Hume 2 values milti hai, toh chances hai ki ho sakta hai ki hmre paas "Null" response aa jaaye, yaa
+phir hmre paas response aaye hi naa "undefined" aa jaaye. Toh es case mai hmra poora kaa poora code
+structure pareshan ho sakta hai.
+
+# Toh aise cases ke liye specially ye bnaya gya hai ki values ko hume treat karna hai ki:
+
+1) Accha agr "null" ho toh uske andar "null" assign karlo, jisse ki hum us hisab se case ko adjust 
+   karle.
+
+2) "undefined" ho toh es hisab se case ko hum handle kare.
+
+3) Yaa koi "value" aa rhi ho toh us value ko hum assign karle.
+
+Toh us special case ke liye hum smjte hai ki value kaise assign hongi.
+ 
+*/
+
+console.log("----------------------------------------");
+
+let val2;
+val2 = null ?? 10 // Ab es case mai konsi value assign hogi ? null yaa 10
+console.log("Output of val2 is...");
+console.log(val2);
+
+/* Output ==> Output of val2 is...
+              10
+
+Toh "val2" mai assign ho gya 10.
+
+IMPORTANT NOTE: Toh ye jo "Nullish Coalescing Operator (??)" hai ye basically kaam kya karta hai ki
+                agr "null" value aayi hai toh uska safety check karde. kyuki "null" ke basis pe ho 
+                sakta hai kuch run naa kare yaa kuch error aa jaaye. 
+
+                Toh badi carefully ye naya operator (??) design kiya gya hai ki agr koi value hai toh
+                use assign kardo yaa agr kuch nhi hai toh "null" assign kardo.
+
+
+val2 = null ?? 10 ==> Abhi yha pr hum 10 le rhe hai, lekin actual mai yha par 10 nhi hoga, Hum yha pr
+                      ek complex function lga dete hai or us function ko koi database call kar rha hai
+                      toh waha se value aa rhi hai. or agr value aa rhi hai toh theak hai varna "null"
+                      assign kardo taaki us hisaab se hum aage ki situation ko handle karle. 
+*/
+
+console.log("----------------------------------------");
+
+let val3;
+val3 = undefined ?? 15 // Ab es case mai konsi value assign hogi ? null yaa 15
+console.log("Output of val3 is...");
+console.log(val3);
+
+/* Output ==> Output of val3 is...
+              15
+
+***Important*** --> Ye jo "Nullish Coalescing Operator (??)" hai toh ye sirf "null"
+                    or "undefined" ke liye bna hai
+*/
+
+console.log("----------------------------------------");
+
+let val4;
+val4 = null ?? 10 ?? 15            // Ab es case mai konsi value assign hogi ? null, 10 yaa phir 15
+console.log("Output of val4 is...");
+console.log(val4);
+
+/* Output ==> Output of val4 is...
+              10
+
+Ab es case mai kya hoga ki jo "null" ke baad jo bhi first value ise milegi ye use print kar dega.
+*/
