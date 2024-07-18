@@ -292,4 +292,24 @@ console.log(val4);
               10
 
 Ab es case mai kya hoga ki jo "null" ke baad jo bhi first value ise milegi ye use print kar dega.
+Yaani vo value "val4" mai assign ho jayegi.
+*/
+
+console.log("----------------------------------------");
+
+// --------------------------------------------------------------------------------------------
+
+/* ********************** Turnary Operator (condition ? true : false) ****************************** */
+
+const iceTeaPrice = 100
+
+console.log("Output of Turnary Operator");
+iceTeaPrice >= 80 ? console.log("more than 80") : console.log("less than 80"); 
+
+/* Output ==> Output of Turnary Operator
+              more than 80 
+
+
+Note: "Nullish Coalescing Operator (??)" or "Turnary Operator(?:)" dono bilkul alg-alg hai.
+
 */
