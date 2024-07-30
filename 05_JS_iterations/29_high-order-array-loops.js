@@ -494,3 +494,45 @@ coding_3.forEach( function (item, index, arr) {
               python 3 [ 'js', 'ruby', 'java', 'python', 'cpp' ]
               cpp 4 [ 'js', 'ruby', 'java', 'python', 'cpp' ]
 */
+
+console.log("------------------------------------------");
+
+// ------------------------------------------------------------------------------------------------
+
+/* 
+    # Ab hum array ke andar "Object" wala scenario dekhte hai --> For Example: [{}, {}, {}]
+
+    Or ye scenario "foreach" mai bhut use kiya jata hai.
+*/
+
+console.log("Access Objects in Array");
+
+const myCoding = [                         // Toh ye hum Array le rhe hai.
+    {                                      // Or ye array ke andar hum "Object" declare kar rhe hai.
+        languageName     : "javascript",
+        languageFileName : "js"
+    },
+    {                                      // ye array ke andar hum 2nd "Object" declare kar rhe hai.
+        languageName     : "java",
+        languageFileName : "java"
+    },
+    {                                      // Or ye array ke andar hum 3rd "Object" declare kar rhe hai.
+        languageName     : "python",
+        languageFileName : "py"
+    },
+]
+
+// Note: "Database" se jo value aati hai vo "Array" ke format mai hi aati hai or har ek value ek "Object" hi hoti hai.
+
+// Ab hum foreach loop lagayenge.
+myCoding.forEach( (item) => {       /* Ab hume pta hai ki item k andar values ko access kaise karte hai. 
+                                       item mai Objects hai toh har iteration mai item jo hai vo Object
+                                       hi hai. */
+
+    console.log(item.languageName);  // toh es tarah se hum ek "Array" ke andar ke "Object" ki value vo access kr skte hai.
+})
+/* Output ==> Access Objects in Array
+              javascript
+              java
+              python
+*/
