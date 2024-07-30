@@ -342,7 +342,7 @@ console.log("------------------------------------------");
 
 // ------------------------------------------------------------------------------------------------
 
-/* *************************************** for each loop **************************************** 
+/* *************************************** foreach loop **************************************** 
 
 Actually kuch loops "arrays" ke andar direct hi properties mai add kar diye jaate hai:
 
@@ -365,5 +365,132 @@ Ab jaise hi hum iska dropdown ko open karenge toh iske prototypes open ho jayeng
 
 */
 
+console.log("Output of foreach loop");
 
 const coding = ["js", "ruby", "java", "python", "cpp"]
+
+coding.forEach( function (item) {
+    console.log(item);
+}) 
+
+/* Output ==> Output of foreach loop
+              js
+              ruby
+              java
+              python
+              cpp 
+
+   coding.forEach() ==> Ab jaise hi hum "forEach" pr apna curser le jaate hai toh hume show karta hai "callbackfn"
+                        means call back function. Iska kehne ka simple ka mtlb hai ki ise ek function dedo ki ise
+                        kya karna hai uske liye.
+   
+   coding.forEach( function name() {}) ==> Ab function kaise bnate hai ? hum function likte hai fir uska naam likhte 
+                                           hai or uske baad paranthesis() lgate hai or phir curly-braces{} ke andar 
+                                           uski definition likhte hai.
+
+                   1) ( function () {})     --> Ab es function ko callback kaha gya hai toh difference itna sa hota 
+                                                hai ki callback jo function hota hai uske andar pehle toh uska naam
+                                                nhi hota. Yaani ki callback function mai function ka hum naam nhi 
+                                                likhte. Toh humne function ka name remove kar diya.
+
+                   2) ( function (item) {}) --> Ab ye () jo function ke andar hum parameters dete the, ab kyuki humne
+                                                array par lagaya hai, toh automatically ye loop itna smart hai ki ye
+                                                array ki har value par jayega. Ab array ki us har value ko hum kya 
+                                                bolenge ? toh hum kuch bhi bol sakte hai. Jaise yha array mai items hai
+                                                toh hum yha isko "item" bol dete hai. Ab ye function automatically
+                                                execute hoga or har baar ye array ki value ko le kar aayega as a 
+                                                parameter apne andar. Or ab hume en value ke sath jo karna hai vo hum
+                                                kar sakte hai function ki body ke andar. 
+
+*/
+
+console.log("------------------------------------------");
+
+// ------------------------------------------------------------------------------------------------
+
+// ******************************* foreach with arrow function ************************************
+
+console.log("Using foreach loop with arrow function");
+
+const coding_1 = ["js", "ruby", "java", "python", "cpp"]
+
+/* 
+coding.forEach() ==> Ab ye bolega ki isko callback do, toh hum ise callback yaa toh "function" ke format
+                     mai de sakte hai yaa phir "arrow" function mai.
+*/
+
+coding_1.forEach( (item_1) => {
+    console.log(item_1);
+} )
+
+/* Output ==> Using foreach loop with arrow function
+              js
+              ruby
+              java
+              python
+              cpp
+*/
+
+console.log("------------------------------------------");
+
+// ------------------------------------------------------------------------------------------------
+
+// Hum alag se function bna kar bhi usko foreach mai as a parameter pass kar sakte hai.
+
+
+console.log("Taking parameter of separate function in foreach loop");
+
+const coding_2 = ["js", "ruby", "java", "python", "cpp"]
+
+function printMe(item){
+    console.log(item);
+}
+coding_2.forEach(printMe) // Yha par hume function ka sirf reference dena hai naa ki execute karna hai.
+
+/* Output ==> Taking parameter of separate function in foreach loop
+              js
+              ruby
+              java
+              python
+              cpp
+*/
+
+console.log("------------------------------------------");
+
+// ------------------------------------------------------------------------------------------------
+
+/* ***Imp***
+   
+    #  coding.forEach( (item) => {} )           --> Ab yha par hum parameter mai "item" de rhe hai lekin aisa
+                                                    nhi hai ki ye yha par har baar item hi le kr aayega jaise 
+                                                    ye abhi "array" ki saare items aa rha the.
+
+                                                    Yha pr or bhi parameters hum le sakte hai or ye kayi values
+                                                    ko yha pr le kr aa sakte hai. 
+
+                                                    Or "foreach" mai hum sirf ek hi nhi or bhi parameters le sakte
+                                                    hai.
+
+    #  coding.forEach( (item, index, arr) => {  --> "foreach" mai sirf "item" ka hi access nhi hota. Isme "index" 
+        console.log(item, index, arr);               bhi aata hai or iska paas "arr" aaray ki poori list bhi aati
+        } )                                          hai. Toh console.log karke bta do ki "item" kya hai ? "index"
+                                                     kya hai ? or ye bhi bta do ki ye poora "arr" array kya hai ?
+                                                     Vaise poore array ki hume jarort pdti nhi hai lekin phir bhi
+                                                     hum smjne k lie hum print karwa ke dekh sakte hai.
+*/
+
+console.log("Passing more than one arguments in foreach loop like item, index and arr");
+
+const coding_3 = ["js", "ruby", "java", "python", "cpp"]
+
+coding_3.forEach( function (item, index, arr) {
+    console.log(item, index, arr);
+}) 
+
+/* Output ==> Passing more than one arguments in foreach loop like item, index and arr
+              js 0 [ 'js', 'ruby', 'java', 'python', 'cpp' ]
+              ruby 1 [ 'js', 'ruby', 'java', 'python', 'cpp' ]
+              java 2 [ 'js', 'ruby', 'java', 'python', 'cpp' ]
+              python 3 [ 'js', 'ruby', 'java', 'python', 'cpp' ]
+              cpp 4 [ 'js', 'ruby', 'java', 'python', 'cpp' ]
+*/
