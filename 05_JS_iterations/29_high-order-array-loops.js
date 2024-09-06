@@ -28,7 +28,7 @@ loops lga sakte hai or string bhi hmre itrator hai toh hum en par bhi loops lga 
 iterator ==> toh isme isne bola "iterator of object"  yaani kis object pr hum lagana chahte hai hum loop ? Toh 
              ye jo iterator hai ye wahi jaise jaise hum "i" value declare karte the.
 
-object   ==> AB ye jo object hai ise ise bhut hi broder term mai use kiya jaa rha hai yha par yaani ki kis object
+object   ==> Ab ye jo object hai ise ise bhut hi broder term mai use kiya jaa rha hai yha par yaani ki kis object
              pr loop lagana chahte hai hum yha par. ise hume JavaScript ke Object smj ke confuse nhi hona hai.
              Yha objects ka mtlb hai ki hume kis cheez ke upr loop lagana hai. 
 
@@ -84,7 +84,7 @@ console.log("------------------------------------------");
     JavaScript mai ek or data-type hota hai jiska naam hai "maps". Maps jo hai vo array jaise hi hote
     hai.
     
-    Ab mai dekhte hai ki "Maps" ke andar kaise values set karni hoti hai. Map ke andar koi bhi duplicate
+    Ab hum dekhte hai ki "Maps" ke andar kaise values set karni hoti hai. Map ke andar koi bhi duplicate
     value nhi hoti, hume isme sabhi unique values milti hai.
 */
 

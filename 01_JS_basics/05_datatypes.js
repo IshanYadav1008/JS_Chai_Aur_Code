@@ -28,7 +28,7 @@ let state;
    boolean   => True/False
    null      => It is a Data Type in JavaScript but also a stand alone value means empty value  
    undefined => Means we declared the variable( like: "state" ) but not assigned any value in it 
-                Undefined ka matlab ki abhi isme value assigned nahi hui hai kelin baad mai hum 
+                Undefined ka matlab hai ki abhi isme value assigned nahi hui hai lekin baad mai hum 
                 assigned kar sakte hai.
    symbol    => Individual component ki uniqueness define karne ke liye use hota h, mostly used in React.
 

@@ -37,7 +37,7 @@ let scoreNull = null
 console.log(typeof scoreNull);                      // Output ==> object
 console.log(typeof (scoreNull));                    // Output ==> object
 
-// Now we will convert string into number
+// Now we will convert null into number
 
 let nullvalueInNumber = Number(scoreNull)
 console.log(typeof nullvalueInNumber);               // Output ==> number
@@ -51,7 +51,7 @@ let scoreUndefined = undefined
 console.log(typeof scoreUndefined);                      // Output ==> undefined
 console.log(typeof (scoreUndefined));                    // Output ==> undefined
 
-// Now we will convert string into number
+// Now we will convert undefined into number
 
 let undefinedvalueInNumber = Number(scoreUndefined)
 console.log(typeof undefinedvalueInNumber);               // Output ==> undefined
@@ -65,7 +65,7 @@ let scoreboolean = true
 console.log(typeof scoreboolean);                      // Output ==> boolean
 console.log(typeof (scoreboolean));                    // Output ==> boolean
 
-// Now we will convert string into number
+// Now we will convert boolean into number
 
 let booleanvalueInNumber = Number(scoreboolean)
 console.log(typeof booleanvalueInNumber);               // Output ==> number
@@ -88,9 +88,9 @@ console.log("--------------")
 
 // ----------------------------------------------------------------------------------------
 
-/* Short Notes of accouding to above examples :
+/* Short Notes of according to above examples :
 
-"33"      ==> 33               ("33" easily convert ho jata hai 33 mai kyuki string mai hai toh ek number hai)
+"33"      ==> 33               ("33" easily convert ho jata hai 33 mai kyuki bhle string mai hai lekin hai toh ek number hi)
 33abc     ==> NaN              (Ye number mai convert nahi hoga, lekin iska type "number ho chuka hai")
 true      ==> 1, False ==> 0   ("true" convert ho jata hai "1" mai or "false" convert ho jata hai "0" mai)
 
