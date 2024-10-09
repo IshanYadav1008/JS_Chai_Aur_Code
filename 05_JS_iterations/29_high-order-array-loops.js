@@ -353,14 +353,14 @@ Actually kuch loops "arrays" ke andar direct hi properties mai add kar diye jaat
 
 Ab jaise hi hum iska dropdown ko open karenge toh iske prototypes open ho jayenge:
 
-* [[Prototype]]: Array(0) ==> Phir hum es prototype ko open karenge toh hume kaaf kuch cheezen dekhai 
+* [[Prototype]]: Array(0) ==> Phir hum es prototype ko open karenge toh hume kaafi kuch cheezen dekhai 
                               dengi.
 
                               Isme hume "map" or "forEach" bhi milega, toh ye loop ka hi ek parameter hai
                               jo bydefault hi inject kar rakha hai kyuki sabko pta hai Arrays agar ayenge
                               toh loop toh lagana hi padega.
 
-                              "forEach" higher order function hai or ise use karna bhut wasy hai or sbse jyda
+                              "forEach" higher order function hai or ise use karna bhut easy hai or sbse jyda
                               yhi use hota hai.
 
 */
@@ -472,11 +472,11 @@ console.log("------------------------------------------");
                                                     hai.
 
     #  coding.forEach( (item, index, arr) => {  --> "foreach" mai sirf "item" ka hi access nhi hota. Isme "index" 
-        console.log(item, index, arr);               bhi aata hai or iska paas "arr" aaray ki poori list bhi aati
+        console.log(item, index, arr);               bhi aata hai or iske paas "arr" aaray ki poori list bhi aati
         } )                                          hai. Toh console.log karke bta do ki "item" kya hai ? "index"
                                                      kya hai ? or ye bhi bta do ki ye poora "arr" array kya hai ?
                                                      Vaise poore array ki hume jarort pdti nhi hai lekin phir bhi
-                                                     hum smjne k lie hum print karwa ke dekh sakte hai.
+                                                     hum smjne k lie print karwa ke dekh sakte hai.
 */
 
 console.log("Passing more than one arguments in foreach loop like item, index and arr");
@@ -488,7 +488,7 @@ coding_3.forEach( function (item, index, arr) {
 }) 
 
 /* Output ==> Passing more than one arguments in foreach loop like item, index and arr
-              js 0 [ 'js', 'ruby', 'java', 'python', 'cpp' ]
+              j0s  [ 'js', 'ruby', 'java', 'python', 'cpp' ]
               ruby 1 [ 'js', 'ruby', 'java', 'python', 'cpp' ]
               java 2 [ 'js', 'ruby', 'java', 'python', 'cpp' ]
               python 3 [ 'js', 'ruby', 'java', 'python', 'cpp' ]
