@@ -201,3 +201,265 @@ console.log(newNumns_2);
    sakte hai yaa jo bhi hmari condition hai toh ye return ho jayega. Lekin ye one line condition
    ke liye hai, agr usse jyda line hongi toh phir hume scope lagana hi padega. 
 */
+
+console.log("------------------------------------------");
+
+// ------------------------------------------------------------------------------------------------
+
+/* Agr agr maanlo hume same kaam "filter()" ka use karne nhi balki "forEach()" se hi karna hai toh
+   uske liye hum kya karenge ? */
+   
+   console.log("Array using forEach()");
+
+   const myNums_3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+   const newNums_3 = []  // 1) Ye humne newNums_3 naam ka ek array bana liye or es array ko humne rakha empty.
+
+   /* 2) Ab myNums_3 ke sath hum laga denge forEach() kyuki hum filter() use nhi kr rhe hai. Or hum isme array 
+         functions hi as a callback use kar rhe hai. */
+
+   myNums_3.forEach( (num) => {   // 3) Ab callback mai har ek number ko hum num nol lete hai.
+
+      if (num > 4) {           // 4) Agr num mai jo bhi values 4 se badi hai toh
+         newNums_3.push(num)   //    Un sabhi values ko newNums_3 mai push kar do. 
+      }                        //    Toh ye basic array ka method hai koi values add karne k liye.
+   } )
+   console.log(newNums_3);
+
+   /* Output ==> Array using forEach()
+                 [ 5, 6, 7, 8, 9, 10 ] 
+   */
+   
+// Toh filter() or forEach() dono mai se hume jo bhi tarika sahi lagta hai vo hum use kar sakte hai.
+
+console.log("------------------------------------------");
+
+// ------------------------------------------------------------------------------------------------
+
+/* Ab filter() ke sath hum or bhi kuch basics hum use kar sakte hai.
+
+   Hum yaha ek books ka example lenge. Ab hum ye books ka example smjte hai ki ye kaam kaise karta
+   hi jisse ki kuch or filter() ke through exercise kar sake.
+*/
+
+console.log("filter the data by using filter() method \n");
+
+const books = [   // 1) Ye books ka ek array hai.
+   {title: "Book One",   genre: "Fiction",     publish: 1981, edition: 2004}, // 2) Or es tarah se books ke andar kayi saare objects hai.
+   {title: "Book Two",   genre: "Non-Fiction", publish: 1992, edition: 2008}, //    Ye bhi
+   {title: "Book Three", genre: "History",     publish: 1999, edition: 2007}, //    Ye bhi
+   {title: "Book Four",  genre: "Non-Fiction", publish: 1989, edition: 2010}, //    Ye bhi
+   {title: "Book Five",  genre: "Science",     publish: 2009, edition: 2014}, //    Ye bhi
+   {title: "Book Six",   genre: "Fiction",     publish: 1987, edition: 2010}, //    Ye bhi
+   {title: "Book Seven", genre: "History",     publish: 1986, edition: 1996}, //    Ye bhi
+   {title: "Book Eight", genre: "Science",     publish: 2011, edition: 2016}, //    Ye bhi
+   {title: "Book Nine",  genre: "Non-Fiction", publish: 1981, edition: 1989}, // or Ye bhi
+]
+
+/*  3) Humne ek ek book ko kuch title diya hua hai like "Book One", "Book Two", "Book Three" etc.
+
+    4) Fir humne books ko kuch genre diye.
+
+    5) Fir sabki ek publishing date di.
+
+    6)  Or for sabki ek edition date di.
+
+    Ab ye sab toh aa gya lekin hum en sab se karna kya chahte hai ? Dekho aisi hi values hume database se milengi.
+
+    Jaise ek database tha uske andar humne kayi saare objects de diye hai. Ab user kuch filter laga rha hai apne
+    webpage par.
+    
+    Ab hume ek exercise karni hai ki user jo-jo bol rha hai toh vo-vo usko karke dijiyiae or usi tarah se print 
+    kariye. 
+    
+    Toh ab hum print karenge.
+*/
+
+console.log("Filter all the books whose gener is History");
+const userBooks = books.filter( (bk) => bk.genre === "History" )  /* Ab ye humne laga diya callback ( () => ), ab chaahe
+                                                       hum ise ek hi line mai kre yaa return keyword use kar le. Toh jaisa
+                                                       hum chaahe vaisa kr sakte hai. Har ek book ko hum "bk" bol dete hai. 
+                                               
+                                                       Ab hume kya filter lagana hai ? Hume vo saari books chyiae jinka gener
+                                                       history hai. toh kaise kar sakte hai ?
+
+                                                       Toh hmre paas array mai se har ek object aa gya hai jise hum "bk" bol
+                                                       rhe hai, toh us bk ke andar hum uska gener access kar sakte hai or ye
+                                                       genre kisse match karna chyiae toh humne "===" lga bol diya "History"
+                                                       se.
+
+                                                       Toh ab "userBooks" ke andar konsi value gyi automatically ? jo bhi es
+                                                       condition ko true manti hai. Yaani ki vo saare objects jinke andar jo
+                                                       gener hai vo agr history hai toh wahi saari books user ko ab dekhai
+                                                       dengi.
+                                                   */
+console.log(userBooks)
+
+/* Output ==> filter the data by using filter() method
+
+Filter all the books whose gener is History
+[
+  {
+    title: 'Book Three',
+    genre: 'History',
+    publish: 1999,
+    edition: 2007
+  },
+  {
+    title: 'Book Seven',
+    genre: 'History',
+    publish: 1986,
+    edition: 1996
+  }
+]
+
+*/
+
+console.log("------------------------------------------");
+
+// Ab hume vo saari books chyiae jo publish hui hai year 2000 ke baad. Toh kaise karenge ?
+
+// --------------------------------------------------------------------------------------
+/*
+
+ console.log("Now filter all that books who published after 2000");
+
+ const userBooks = books.filter( (bk) => { bk.publish >= 2000 })
+ console.log(userBooks)
+
+ Output ==> SyntaxError: Identifier 'userBooks' has already been declared 
+
+
+ Ab hum "userBooks" ko redeclare toh nhi kar sakte kyuki ye pehle se hi declare hai.
+ lekin Overwrite kar sakte hai. 
+*/
+
+// -----------------------------------------------------------------------------------------
+
+// Toh ab hum "userBooks" ko Overwrite kr lete hai.
+
+/* userBooks = books.filter( (bk) => { bk.publish >= 2000 })
+   console.log(userBooks)
+
+   Output ==> TypeError: Assignment to constant variable.
+
+   Ab ye error kyu aayi ? kykui upr waali es --> const userBooks = books.filter( (bk) => bk.genre === "History" )
+   line mai "userBooks" constant declare hai. 
+
+   Toh hume ise "const" se "let" mai karna padega kykui const value toh redeclare nhi hoti hai.
+
+   Lekin hum aisa karenge lekin new example le kar, ise aisa hi rehne dete hai smjhenge k liye.
+
+*/
+
+// ================================================================================================================
+
+const books_1 = [  
+   {title: "Book One",   genre: "Fiction",     publish: 1981, edition: 2004}, 
+   {title: "Book Two",   genre: "Non-Fiction", publish: 1992, edition: 2008},
+   {title: "Book Three", genre: "History",     publish: 1999, edition: 2007},
+   {title: "Book Four",  genre: "Non-Fiction", publish: 1989, edition: 2010},
+   {title: "Book Five",  genre: "Science",     publish: 2009, edition: 2014},
+   {title: "Book Six",   genre: "Fiction",     publish: 1987, edition: 2010},
+   {title: "Book Seven", genre: "History",     publish: 1986, edition: 1996},
+   {title: "Book Eight", genre: "Science",     publish: 2011, edition: 2016},
+   {title: "Book Nine",  genre: "Non-Fiction", publish: 1981, edition: 1989},
+]
+
+console.log("Filter all the books whose gener is History");
+let userBooks_1 = books_1.filter( (bk) => bk.genre === "History" )  // Ab yha humne "const" ki jagah "let" use kar liya hai.
+
+console.log(userBooks_1)
+
+// -----------------------------------------------------------------------------
+
+console.log("\n Now filter all that books who published after 2000 \n");
+
+console.log("Empty Array is coming because we are not using return keyword with scope {}");
+userBooks_1 = books_1.filter( (bk) => { bk.publish >= 2000 })
+console.log(userBooks_1)
+
+/* Output ==>  Now filter all that books who published after 2000
+               []
+
+   Ab output mai ye empty array kyu aaya ? Toh kya year 2000 ke baad koi book publish nhi hui hai kya ?
+
+   Toh aisa nhi hai, 2000 ke baad books toh publish hui hai. Toh jo ye "bk.publish" hai toh isme
+   2000 ke baad waali publish books ka data toh hai.
+
+   Toh phir error kaha hai ?
+
+   { bk.publish >= 2000 } --> Toh yaha hai error. Humne yha scope {} open kar liya hai.
+
+   bk.genre === "History" --> Lekin yha humne scope open nhi kiya tha.
+
+   Toh yaa toh hume scope {} hatana padega yaa phir "return" keyword ka use karna padega.
+
+*/
+
+// -----------------------------------------------------------------------------
+
+console.log("\n Now the output of all that books are coming who are published after 2000 \n");
+userBooks_1 = books_1.filter( (bk) => { return bk.publish >= 2000 })
+console.log(userBooks_1)
+
+/* Output ==> Now the output of all that books are coming who are published after 2000 
+
+[
+  {
+    title: 'Book Five',
+    genre: 'Science',
+    publish: 2009,
+    edition: 2014
+  },
+  {
+    title: 'Book Eight',
+    genre: 'Science',
+    publish: 2011,
+    edition: 2016
+  }
+]
+
+*/
+
+console.log("------------------------------------------");
+
+// ------------------------------------------------------------------------------------------------
+
+/* Ab hum aisa chahte hai ki un books ko show karwa do jinki publish date 1995 yaa uske baad hai toh 
+   hum aisa bhi kar sakte hai. */ 
+
+console.log("\n Now the output of all that books are coming who are published after 1995 \n");
+userBooks_1 = books_1.filter( (bk) => { return bk.publish >= 1995 })
+console.log(userBooks_1)
+
+/* Output ==>  Now the output of all that books are coming who are published after 1995 
+
+[
+  {
+    title: 'Book Three',
+    genre: 'History',
+    publish: 1999,
+    edition: 2007
+  },
+  {
+    title: 'Book Five',
+    genre: 'Science',
+    publish: 2009,
+    edition: 2014
+  },
+  {
+    title: 'Book Eight',
+    genre: 'Science',
+    publish: 2011,
+    edition: 2016
+  }
+]
+
+*/
+
+console.log("------------------------------------------");
+
+// ------------------------------------------------------------------------------------------------
+
+/* Ab hmara interest us book mai hai jo 1995 yaa uske baad publish hui hai or vo "History" gener ki
+   honi chyiae. */ 
